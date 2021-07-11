@@ -1,0 +1,29 @@
+App\Entity\User:
+    properties:
+        email:
+            - Email:
+                message: 'Вы ввели не валидный email {{ value }}'
+
+        firstName:
+            - Length:
+                min: 2
+                max: 50
+                minMessage: 'Ваше имя должно быть как минимум {{ limit }} символов'
+                maxMessage: 'Ваше имя не должно быть длиннее {{ limit }} символов'
+
+        lastName:
+            - Length:
+                min: 2
+                max: 50
+                minMessage: 'Ваша фамилия должна быть как минимум {{ limit }} символов'
+                maxMessage: 'Ваша фамилия не должна быть длиннее {{ limit }} символов'
+
+        phone:
+            - Regex:
+                pattern: '/^\+[\d\- ]{7,12}$/'
+                message: 'Указан некорректный номер телефона'
+
+        password:
+            - Length:
+                min: 3
+                minMessage: 'Пароль не менее {{ limit }} символов'
